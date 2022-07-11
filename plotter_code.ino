@@ -30,17 +30,17 @@ void loop(){
       case 0:
       myservo.write(0);
       Serial.print(0); // digitalRead the pin
-      delay(1000);
+      delay(100);
       break;
       case 1:
       myservo.write(45);
       Serial.print(45); // digitalRead the pin
-      delay(1000);
+      delay(100);
       break;
       case 2:
       myservo.write(90);
       Serial.print(90); // digitalRead the pin
-      delay(1000);
+      delay(100);
       break;
       case 3:
       myservo.write(180);
@@ -55,12 +55,12 @@ void loop(){
       case 5:
       myservo.write(45);
       Serial.print(45); // digitalRead the pin
-      delay(1000);
+      delay(100);
       break;
       case 6:
       myservo.write(90);
       Serial.print(90); // digitalRead the pin
-      delay(1000);
+      delay(100);
       break;
     }
     if (i < 8)
