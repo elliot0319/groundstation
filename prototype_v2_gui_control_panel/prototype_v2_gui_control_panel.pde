@@ -10,10 +10,10 @@ import processing.serial.*;
 PImage example_img = new PImage();
 
 // Serial port to connect to
-String serialPortName = "/dev/tty.usbmodem1411";
+String serialPortName = "COM3";
 
 // If you want to debug the plotter without using a real serial port set this to true
-boolean mockupSerial = true;
+boolean mockupSerial = false;
 
 /* SETTINGS END */
 
@@ -34,9 +34,9 @@ Graph GraphOrX = new Graph(380, 75, 90, 90, color(200, 20, 20));
 Graph GraphOrY = new Graph(380, 290, 90, 90, color(200, 20, 20));
 Graph GraphOrZ = new Graph(380, 505, 90, 90, color(200, 20, 20));
 
-float[] lineGraphSampleNumbers = new float[100];
-float[][] lineGraphValuesLThr = new float[7][100];
-float[] lineGraphSampleNumbersLThr = new float[100];
+float[] lineGraphSampleNumbers = new float[80];
+float[][] lineGraphValuesLThr = new float[7][80];
+float[] lineGraphSampleNumbersLThr = new float[80];
 color[] graphColors = new color[7];
 
 // helper for saving the executing path
