@@ -3,11 +3,16 @@ import java.awt.Frame;
 import java.awt.BorderLayout;
 import controlP5.*; // http://www.sojamo.de/libraries/controlP5/
 import processing.serial.*;
+import processing.video.*;
+
+// Notes
+// GstException issue -> Make a new sketchbook folder in another directory
+
 
 /* SETTINGS BEGIN */
 
 // Image (instead of FPV feed)
-PImage example_img = new PImage();
+Capture video;
 
 // Serial port to connect to
 String serialPortName = "COM3";
@@ -46,8 +51,9 @@ void setup() {
   surface.setTitle("Ground Control");
   size(1345, 675);
 
-  // Load image instead of FPV feed
-  example_img = loadImage("example1.jpg");
+  // Load FPV feed
+  video = new Capture(this, "pipeline:ksvideosrc device-index=1 ! jpegdec");
+  video.start();
   
   // set line graph colors
   graphColors[0] = color(131, 255, 20);
@@ -221,7 +227,10 @@ void draw() {
   
   // draw image (instead of camera feed)
   if(int(getPlotterConfigString("imageStatus")) == 1) {
-    image(example_img, 585, 115, 500, 300);
+    if(video.available()){
+    video.read();
+    }
+    image(video,585, 115, 500, 300);
   }
   else{
     textSize(30);
