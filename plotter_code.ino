@@ -9,6 +9,8 @@ bool debug = false;
 
 uint8_t buffer2[20];
 
+Servo myservo;  // create servo object to control a servo
+
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(115200);
